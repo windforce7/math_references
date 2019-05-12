@@ -43,7 +43,7 @@ $$
 #   2 Binomial distribution [discrete]
 Binomial distribution is based on n independent Bernoulli experiments.
 
-##  2.1 Difinition of Binomial R.V.
+##  2.1 Definition of Binomial R.V.
 Do Bernoulli experiment $n \geq 1$ time(s) and let X denote the **total number of type A results**. This can be also written as $X \sim b(n, p)$.
 
 ##  2.2 pmf of Binomail R.V.
@@ -74,7 +74,7 @@ See [The Binomial Distribution](https://stat.ethz.ch/R-manual/R-devel/library/st
 #   3 Negative binomial distribution [discrete]
 Negative binomial distribution is also derived from a series of independent Bernoulli experiments.
 
-##  3.1 Difinition of negative binomial R.V.
+##  3.1 Definition of negative binomial R.V.
 For an arbitary positive integer $r$, do a series of Bernoulli experiments for $n \geq 1$ time(s) independently and let Y denote the **total number of failures (B) right before observing the $r$th successful (A) result**.
 Naturally it makes no sense when $n < r$.
 
@@ -110,7 +110,7 @@ See [The Negative Binomial Distribution](https://stat.ethz.ch/R-manual/R-devel/l
 #   4 Geometric distribution [discrete]
 Geometric distribution is a special case of [negative binomial distribution](#3-negative-binomial-distribution-discrete) when $r = 1$.
 
-##  4.1 Difinition of geometric R.V.
+##  4.1 Definition of geometric R.V.
 Let X denote the **total number of failures (B) right before observing the first successful (A) result** in a series of identically independent Bernoulli experiment.
 
 ##  4.2 pmf of geometric R.V.
@@ -139,7 +139,7 @@ Multinomial distribution is an extension of binomial distribution. In each exper
 
 $n \geq 1$  independent repeat experiments are conducted in a row.
 
-##  5.1 Difinition of multinomial R.V.
+##  5.1 Definition of multinomial R.V.
 Let vector ${\bold X} = \{x_1, x_2, ... , x_k\}$ denote the outcome that in $n$ independent repeat experiments, outcome $C_i$ is observed $x_i$ times. Therefore:
 1.  $\sum _ {i = 0} ^ k x_i = n$
 2.  $x_i \geq 0 for i = 1, 2, ... ,k$
@@ -173,7 +173,7 @@ Hypergeometric distribution is commonly used in survey sampling. There are $D$ d
 
 Each time a product is picked, the outcome whether it's defect is Bernoulli. If a product is returned when it's picked, the repeat experiment picking many times become Binomial.
 
-##  6.1 Difinition of hypergeometric R.V.
+##  6.1 Definition of hypergeometric R.V.
 Let $X$ denote the number of defect products when the sample size is $n$.
 
 ##  6.2 pmf of hypergeometric R.V.
@@ -208,7 +208,7 @@ The event happens on any spot within a continuous interval of space (1 dimeensio
 3.  On non-overlapping intervals, $x_i$ are independent
 </details>
 
-##  7.1 Difinition of Poisson R.V.
+##  7.1 Definition of Poisson R.V.
 Let $X$ denote the **total number of happening events within the interval of length $w$**.
 
 ##  7.2 pmf of Poisson R.V.
@@ -239,8 +239,29 @@ $$
 ##  7.5 R reference
 See [The Poisson Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Poisson.html).
 
-#   8 $\Gamma$ Distribution
+#   8 $\Gamma$ Distribution [continuous]
+<details>
+<summary>
+The Gamma distribution is used in many cases such as the time before decease. It's necessary to understand the Gamma function before going deeper.
+</summary>
 
-#   9 $\chi ^ 2$ Distribution
+For a positive real number $\alpha > 0$, define:
+$$
+\int_0^\infty y ^ {\alpha - 1} e ^ {-y} dy = \Gamma(\alpha)
+$$
+</details>
 
-#   10 $\beta$ Distribution
+##  8.1 Definition of $\Gamma$ R.V.
+
+##  8.2 pdf of $\Gamma$ R.V.
+
+##  8.3 Support set of $\Gamma$ R.V.
+
+##  8.4 Moment of $\Gamma$ distribution
+
+##  8.5 R reference
+See [The Gamma Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/GammaDist.html).
+
+#   9 $\chi ^ 2$ Distribution [continuous]
+
+#   10 $\beta$ Distribution [continuous]
