@@ -25,7 +25,7 @@ $$
 \begin{cases}
 p(1) = p\\
 p(0) = 1 - p\\
-p(x) = 0, otherwise
+p(x) = 0 \text{, otherwise}
 \end{cases}
 $$
 Or in other way: $p(x)=p^x(1-p)^{1-x}$.
@@ -51,7 +51,7 @@ $$
 p(x) = \begin{cases}
 P\{X=x\} = 
 {n \choose x} p ^ x (1 - p) ^ {n - x} = {n \choose x} p ^ x q ^ {n - x}, x = 0, 1, ... ,n\\
-0, otherwise
+0 \text{, otherwise}
 \end{cases}
 $$
 
@@ -76,7 +76,7 @@ Negative binomial distribution is also derived from a series of independent Bern
 
 ##  3.1 Definition of negative binomial R.V.
 For an arbitary positive integer $r$, do a series of Bernoulli experiments for $n \geq 1$ time(s) independently and let Y denote the **total number of failures (B) right before observing the $r$th successful (A) result**.
-Naturally it makes no sense when $n < r$.
+Naturally it makes no sense when $n \lt r$.
 
 ##  3.2 pmf of negative binomial R.V.
 The event described in 3.1 can be taken as a 2-step composite event:
@@ -88,7 +88,7 @@ $$
 p_y(y) = \begin{cases}
 {y + r - 1 \choose r - 1} p ^ {r - 1} (1 - p) ^ y \times p 
 = {y + r - 1 \choose r - 1} p ^ r q ^ y, y = 0, 1, ...\\
-0, otherwise
+0 \text{, otherwise}
 \end{cases}
 $$
 
@@ -117,7 +117,7 @@ Let X denote the **total number of failures (B) right before observing the first
 $$
 p_y(y) = \begin{cases}
 (1 - p) ^ y p = pq ^ y, y = 0, 1, ...\\
-0, otherwise
+0 \text{, otherwise}
 \end{cases}
 $$
 
@@ -220,7 +220,7 @@ Let $m = \lambda w$ and the pmf can be rewritten as:
 $$
 p(x) = \begin{cases}
 \frac{m ^ x e ^ {-m}}{x!}, x = 0, 1, 2,...\\
-0, otherwise
+0 \text{, otherwise}
 \end{cases}
 $$
 
@@ -242,26 +242,182 @@ See [The Poisson Distribution](https://stat.ethz.ch/R-manual/R-devel/library/sta
 #   8 $\Gamma$ Distribution [continuous]
 <details>
 <summary>
-The Gamma distribution is used in many cases such as the time before decease. It's necessary to understand the Gamma function before going deeper.
+The Gamma distribution is used in many cases such as the time until decease. It's necessary to understand the Gamma function before going deeper.
 </summary>
 
-For a positive real number $\alpha > 0$, define:
+For a **positive** real number $\alpha \gt 0$, define:
 $$
 \int_0^\infty y ^ {\alpha - 1} e ^ {-y} dy = \Gamma(\alpha)
+$$
+
+It has the following properties:
+$$
+\Gamma(\alpha) = (\alpha - 1)\Gamma(\alpha - 1)\\
+\Gamma(1) = 1\\
+\Gamma(\frac{1}{2}) = \sqrt{\pi}
+\Gamma(\alpha) \gt 0 \text{, for any }\alpha \gt 0
 $$
 </details>
 
 ##  8.1 Definition of $\Gamma$ R.V.
+A $\Gamma$ R.V. is a continuous random variable which has a $\Gamma$ pdf. A $\Gamma$ R.V. is not defined the same way as a binomial R.V. by its meaning.
 
 ##  8.2 pdf of $\Gamma$ R.V.
+$$
+f(x) = \begin{cases}
+\frac{1}{\Gamma(\alpha) \beta ^ \alpha} x ^ {\alpha - 1} e ^ {- \frac{x}{\beta}} \text{, } 0 \lt x \lt +\infty\\
+0 \text{, otherwise}
+\end{cases}\\
+\alpha \gt 0, \beta \gt 0.
+$$
+
+It can also be written as: $X \sim \Gamma(\alpha, \beta)$. Notice that the form of pdf is slightly different from the original $\Gamma$ function for another parameter $\beta$ is introduced. To understand this, consider substitution $y = \frac{x}{\beta}, \beta \gt 0$.
+$$
+\Gamma(\alpha) = \int_0^\infty{(\frac{x}{\beta}) ^ {\alpha - 1} e ^ {-\frac{x}{\beta}} (\frac{1}{\beta})dx}
+$$
 
 ##  8.3 Support set of $\Gamma$ R.V.
+$$
+x \in (0, +\infty)
+$$
 
 ##  8.4 Moment of $\Gamma$ distribution
+$$
+M(t) = \frac{1}{(1 - \beta t) ^ \alpha} \text{, } t \lt \frac{1}{\beta}\\
+\mu = \alpha\beta\\
+\sigma ^ 2 = \alpha\beta ^ 2
+$$
 
 ##  8.5 R reference
 See [The Gamma Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/GammaDist.html).
 
-#   9 $\chi ^ 2$ Distribution [continuous]
+#   9 The Exponential Distribution [continuous]
+The exponential distribution is a special case of $\Gamma$ distribution.
 
-#   10 $\beta$ Distribution [continuous]
+##  9.1 Definition of exponential R.V.
+Same as [The $\Gamma$ R.V.](#81-definition-of-gamma-rv) with $\alpha = 1$ and $\beta = \frac{1}{\lambda} \gt 0$.
+
+##  9.2 pdf of exponential R.V.
+$$
+g(x) = \begin{cases}
+\lambda e ^ {-\lambda x} \text{, } 0 \lt x \lt +\infty\\
+0 \text{, otherwise}
+\end{cases}\\
+\lambda \gt 0
+$$
+
+##  9.3 Support set of exponential R.V.
+Same as [The $\Gamma$ R.V.](#83-support-set-of-gamma-rv).
+
+##  9.4 Moment of exponential distribution
+$$
+M(t) = \frac{1}{1 - \frac{1}{\lambda}t} = \frac{\lambda}{\lambda - t} \text{, } t \lt \lambda\\
+\mu = \frac{1}{\lambda}\\
+\sigma ^ 2 = \frac{1}{\lambda ^ 2}
+$$
+
+##  9.5 R reference
+See [The Exponential Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Exponential.html).
+
+#   10 $\chi ^ 2$ Distribution [continuous]
+The $\chi ^ 2$ distribution is also a special case of $\Gamma$ distribution. It is also closely connected to Normal distribution.
+
+##  10.1 Definition of $\chi ^ 2$ R.V.
+Same as [The $\Gamma$ R.V.](#81-definition-of-gamma-rv) with $\alpha = \frac{r}{2}$ and $\beta = 2$ where $r$ is a positive integer.
+
+##  10.2 pdf of $\chi ^ 2$ R.V.
+$$
+f(x) = \begin{cases}
+\frac{1}{\Gamma(r/2)2 ^ {r/2}} x ^ {\frac{r}{2} - 1} e ^ {- \frac{x}{2}} \text{, } 0 \lt x \lt +\infty\\
+0 \text{, otherwise}
+\end{cases}\\
+r \in N ^ + = \{1, 2, 3, ...\}
+$$
+
+##  10.3 Support set of $\chi ^ 2$ R.V.
+Same as [The $\Gamma$ R.V.](#83-support-set-of-gamma-rv).
+
+##  10.4 Moment of $\chi ^ 2$ distribution
+$$
+M(t) = \frac{1}{(1 - 2t) ^ \frac{r}{2}} \text{, } t \lt \frac{1}{2}\\
+\mu = r\\
+\sigma ^ 2 = 2r
+$$
+
+##  10.5 R reference
+See [The Chi-Squared Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Chisquare.html).
+
+#   11 Beta Distribution [continuous]
+<details>
+<summary>
+Beta distribution can be derived from two independent Gamma random variables.
+</summary>
+
+Suppose two independent random variables $X_1 \sim \Gamma(\alpha), X_2 \sim \Gamma(\beta)$. Joint pdf is:
+$$
+f_{1,2}(x_1, x_2) = \frac{1}{\Gamma(\alpha)\Gamma(\beta)} x_1 ^ {\alpha - 1} x_2 ^ {\beta - 1} e ^ {- x_1 - x_2} \text{, } 0 \lt x_1 \lt +\infty, 0 \lt x_2 \lt +\infty\\
+\alpha \gt 0, \beta \gt 0
+$$
+
+Consider the substituion, which is a bijection from $(0, \infty) \times (0, \infty) \to (0, \infty) \times (0, 1)$:
+$$
+\begin{cases}
+Y_1 = X_1 + X_2\\
+Y_2 = \frac{X_1}{X_1 + X_2}
+\end{cases}
+$$
+
+They have joint pdf and marginal pdf:
+$$
+g_{1,2} =\\
+\begin{cases}
+\frac{y_2 ^ {\alpha - 1}(1 - y_2) ^ {\beta - 1} y_1 ^ {\alpha + \beta - 1} e ^ {- y_1}}{\Gamma(\alpha)\Gamma(\beta)} \text{, } 0 \lt y_1 \lt +\infty, 0 \lt y_2 \lt 1\\
+0 \text{, otherwise}
+\end{cases}\\
+g_1(y_1) =\\
+\begin{cases}
+\frac{y_1 ^ {\alpha + \beta - 1} e ^ {- y_1}}{\Gamma(\alpha + \beta)} \text{, } 0 \lt y_1 \lt +\infty\\
+0 \text{, otherwise}
+\end{cases}\\
+g_2(y_2) =\\
+\begin{cases}
+\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} y_2 ^ {\alpha - 1} (1 - y_2) ^ {\beta - 1} \text{, } 0 \lt y_2 \lt 1\\
+0 \text{, otherwise}
+\end{cases}
+$$
+
+The following conclusions are drawn:
+1.  $Y_1$ and $Y_2$ are independent
+2.  $Y_1 \sim \Gamma(\alpha + \beta, 1)$
+
+$Y_2$ follows a beta distribution with param $\alpha$ and $\beta$, which can be denote as $Y_2 \sim beta(\alpha, \beta)$.
+</details>
+
+##  11.1 Definition of beta R.V.
+Aside from the connection with Gamma distribution, it's easier to take $\beta$ random variables as continuous R.V. which has a $\beta$ pdf.
+
+##  11.2 pdf of beta R.V.
+$$
+f(x) = \begin{cases}
+\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x ^ {\alpha - 1} (1 - x) ^ {\beta - 1} \text{, } 0 \lt x \lt 1\\
+0 \text{, otherwise}
+\end{cases}\\
+\alpha \gt 0, \beta \gt 0
+$$
+
+##  11.3 Support set of beta R.V.
+$$
+x \in (0, 1)
+$$
+
+##  11.4 Moment of beta distribution
+$$
+M(t) = 1 = \sum_{i = 1}^\infty(\prod_{j = 0}^{i - 1}\frac{\alpha + j}{\alpha + \beta + j})\frac{t ^ i}{i!} \text{, } -\infty \lt t \lt +\infty\\
+\mu = \frac{\alpha}{\alpha + \beta}\\
+\sigma ^ 2 = \frac{\alpha\beta}{(\alpha + \beta + 1)(\alpha + \beta) ^ 2}
+$$
+
+##  11.5 R reference
+See [The Beta Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Beta.html).
+
+#   12 Normal Distribution
