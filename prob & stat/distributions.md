@@ -1,4 +1,5 @@
-#   1 **The Bernoulli distribution** [discrete]
+[TOC]
+#   1 **The Bernoulli distribution** (discrete)
 <details>
 <summary>
 The Bernoulli distribution is a statistic model for the Bernoulli experiment.
@@ -35,12 +36,14 @@ D = \{0, 1\}
 $$
 ##  1.4 Moment of Bernoulli distribution
 $$
-M(t) = [(1 - p) + pe ^ t] = [q + pe ^ t]\\
-\mu = p\\
-\sigma^2 = p(1-p) = pq
+\begin{aligned}
+M(t) =& [(1 - p) + pe ^ t] = [q + pe ^ t] \\
+\mu =& p\\ 
+\sigma ^ 2 =& p (1 - p) = pq
+\end{aligned}
 $$
 
-#   2 **The Binomial distribution** [discrete]
+#   2 **The Binomial distribution** (discrete)
 Binomial distribution is based on n independent Bernoulli experiments.
 
 ##  2.1 Definition of Binomial R.V.
@@ -62,16 +65,18 @@ $$
 
 ##  2.4 Moment of Binomial distribution
 $$
-M(t) = \sum _ {x = 0} ^ {n} e ^ {tx} {n \choose x} p ^ x q ^ {n - x} = 
-\sum _ {x = 0} ^ {n} (pe ^ t) q ^ {n - x} = [q + pe ^ t] ^ n\\
-\mu = M'(t) = np\\
-\sigma ^ 2 = M''(0) - \mu ^ 2 = np(1 - p) = npq
+\begin{aligned}
+M(t) =& \sum _ {x = 0} ^ {n} e ^ {tx} {n \choose x} p ^ x q ^ {n - x}\\
+=& \sum _ {x = 0} ^ {n} (pe ^ t) q ^ {n - x} = [q + pe ^ t] ^ n\\
+\mu =& M'(t) = np\\
+\sigma ^ 2 =& M''(0) - \mu ^ 2 = np(1 - p) = npq
+\end{aligned}
 $$
 
 ##  2.5 R reference
 See [The Binomial Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Binomial.html).
 
-#   3 **The Negative binomial distribution** [discrete]
+#   3 **The Negative binomial distribution** (discrete)
 Negative binomial distribution is also derived from a series of independent Bernoulli experiments.
 
 ##  3.1 Definition of negative binomial R.V.
@@ -99,15 +104,17 @@ $$
 
 ##  3.4 Moment of negative binomial distribution
 $$
-M(t) = p ^ r[1 - (1 - p)e ^ t] ^ {-r} = p ^ r[1 - qe ^ t] ^ {-r}\\
-\mu = \frac{rp}{1 - p} = \frac{rp}{q}\\
-\sigma ^ 2 = \frac{r(1 - p)}{p ^ 2} = \frac{rq}{p ^ 2}
+\begin{aligned}
+M(t) =& p ^ r[1 - (1 - p)e ^ t] ^ {-r} = p ^ r[1 - qe ^ t] ^ {-r}\\
+\mu =& \frac{rp}{1 - p} = \frac{rp}{q}\\
+\sigma ^ 2 =& \frac{r(1 - p)}{p ^ 2} = \frac{rq}{p ^ 2}
+\end{aligned}
 $$
 
 ##  3.5 R reference
 See [The Negative Binomial Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/NegBinomial.html).
 
-#   4 **The Geometric distribution** [discrete]
+#   4 **The Geometric distribution** (discrete)
 Geometric distribution is a special case of [negative binomial distribution](#3-negative-binomial-distribution-discrete) when $r = 1$.
 
 ##  4.1 Definition of geometric R.V.
@@ -126,15 +133,17 @@ Identical to [negative binomial distribution](#33-support-set-of-negative-binomi
 
 ##  4.4 Moment of geometric distribution
 $$
-M(t) = p[1 - (1 - p)e ^ t] ^ {-1} = p[1 - qe ^ t] ^ {-1}\\
-\mu = \frac{p}{1 - p} = \frac{p}{q}\\
-\sigma ^ 2 = \frac{1 - p}{p ^ 2} = \frac{q}{p ^ 2}
+\begin{aligned}
+M(t) =& p[1 - (1 - p)e ^ t] ^ {-1} = p[1 - qe ^ t] ^ {-1}\\
+\mu =& \frac{p}{1 - p} = \frac{p}{q}\\
+\sigma ^ 2 =& \frac{1 - p}{p ^ 2} = \frac{q}{p ^ 2}
+\end{aligned}
 $$
 
 ##  4.5 R reference
 See [The Geometric Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Geometric.html).
 
-#   5 **The Multinomial distribution** [discrete]
+#   5 **The Multinomial distribution** (discrete)
 Multinomial distribution is an extension of binomial distribution. In each experiment there are $k$ exclusive and exhaustive outcomes instead of 2, say $C_1, C_2, ..., C_k$. Getting an outcome of $C_i$ has probability $p_i$ and clearly $\sum _ {i = 1} ^ k p_i = 1$. 
 
 $n \geq 1$  independent repeat experiments are conducted in a row.
@@ -148,8 +157,10 @@ Multinomial R.V. is multivariate with $k$ dimensions. With fixed $n$, it can als
 
 ##  5.2 pmf of multinomial R.V.
 $$
-p(x_1, x_2, ..., x_k) = {n \choose x_1}{n - x_1 \choose x_2}...{n - x_1 - ... - x_{k - 2} \choose x_{k - 1}}p_1 ^ {x_1}p_2 ^ {x_2}...p_k ^ {x_k}\\
-=\frac{n!}{x_1!x_2!...x_k!}p_1 ^ {x_1}p_2 ^ {x_2}...p_k ^ {x_k}
+\begin{aligned}
+p(x_1, x_2, ..., x_k) =& {n \choose x_1}{n - x_1 \choose x_2}...{n - x_1 - ... - x_{k - 2} \choose x_{k - 1}}p_1 ^ {x_1}p_2 ^ {x_2}...p_k ^ {x_k}\\
+=& \frac{n!}{x_1!x_2!...x_k!}p_1 ^ {x_1}p_2 ^ {x_2}...p_k ^ {x_k}
+\end{aligned}
 $$
 
 ##  5.3 Support set of multinomial R.V.
@@ -159,16 +170,18 @@ $$
 
 ##  5.4 Moment of multinomial distribution
 $$
-M({\bold t}) = (\sum _ {i = 1} ^ k p_i e ^ {t_i}) ^ n\\
-\mu_i = np_i\\
-\sigma_i ^ 2 = np_i(1 - p_i) = np_i q_i\\
-Cov(x_i, x_j) = -np_i p_j
+\begin{aligned}
+M({\bold t}) =& (\sum _ {i = 1} ^ k p_i e ^ {t_i}) ^ n\\
+\mu_i =& np_i\\
+\sigma_i ^ 2 =& np_i(1 - p_i) = np_i q_i\\
+Cov(x_i, x_j) =& -np_i p_j
+\end{aligned}
 $$
 
 ##  5.5 R reference
 See [The Multinomial Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Multinom.html).
 
-#   6 **The Hypergeometric distribution** [discrete]
+#   6 **The Hypergeometric distribution** (discrete)
 Hypergeometric distribution is commonly used in survey sampling. There are $D$ defect ones among a batch of $N \geq D$ products and a group of sample sized $n \leq D$ is picked from these products. Every time a product is picked from the batch, each product in the batch is equally likely to be picked, and the picked one is not returned to the batch(without replacement).
 
 Each time a product is picked, the outcome whether it's defect is Bernoulli. If a product is returned when it's picked, the repeat experiment picking many times become Binomial.
@@ -183,20 +196,24 @@ $$
 
 ##  6.3 Support set of hypergeometric R.V.
 $$
-x \in \{0, 1, ..., n\}\\
-n \leq min\{N, D\}
+\begin{aligned}
+x \in& \{0, 1, ..., n\}\\
+n \leq& min\{N, D\}
+\end{aligned}
 $$
 
 ##  6.4 Moment of hypergeometric distribution
 $$
-\mu = n\frac{D}{N}\\
-\sigma ^ 2 = n \frac{D}{N}\frac{N - D}{N}\frac{N - n}{N - 1}
+\begin{aligned}
+\mu =& n\frac{D}{N}\\
+\sigma ^ 2 =& n \frac{D}{N}\frac{N - D}{N}\frac{N - n}{N - 1}
+\end{aligned}
 $$
 
 ##  6.5 R reference
 See [Hypergeometric distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html).
 
-#   7 **Poisson Distribution** [discrete]
+#   7 **Poisson Distribution** (discrete)
 <details>
 <summary>
 The Poisson Distribution is widely used in stochastic process. It describes the number of times that a random event happens within a period of time (a subarea) on a continuous timeline (space). The Poisson Assumption strictly defines the case.
@@ -231,15 +248,17 @@ $$
 
 ##  7.4 Moment of Poisson distribution
 $$
-M(t) = \sum_x e^{tx}\frac{m ^ x e ^ {-m}}{x!} = e ^ {m(e ^ t - 1)}\\
-\mu = m\\
-\sigma ^2 = m
+\begin{aligned}
+M(t) =& \sum_x e^{tx}\frac{m ^ x e ^ {-m}}{x!} = e ^ {m(e ^ t - 1)}\\
+\mu =& m\\
+\sigma ^2 =& m
+\end{aligned}
 $$
 
 ##  7.5 R reference
 See [The Poisson Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Poisson.html).
 
-#   8 **The $\Gamma$ Distribution** [continuous]
+#   8 **The $\Gamma$ Distribution** (continuous)
 <details>
 <summary>
 The Gamma distribution is used in many cases such as the time until decease. It's necessary to understand the Gamma function before going deeper.
@@ -252,10 +271,12 @@ $$
 
 It has the following properties:
 $$
-\Gamma(\alpha) = (\alpha - 1)\Gamma(\alpha - 1)\\
-\Gamma(1) = 1\\
-\Gamma(\frac{1}{2}) = \sqrt{\pi}
-\Gamma(\alpha) \gt 0 \text{, for any }\alpha \gt 0
+\begin{aligned}
+\Gamma(\alpha) &= (\alpha - 1)\Gamma(\alpha - 1)\\
+\Gamma(1) &= 1\\
+\Gamma(\frac{1}{2}) &= \sqrt{\pi}\\
+\Gamma(\alpha) &\gt 0 \text{, for any }\alpha \gt 0
+\end{aligned}
 $$
 </details>
 
@@ -264,11 +285,13 @@ A $\Gamma$ R.V. is a continuous random variable which follows the $\Gamma$ distr
 
 ##  8.2 pdf of $\Gamma$ R.V.
 $$
-f(x) = \begin{cases}
+\begin{aligned}
+&f(x) = \begin{cases}
 \frac{1}{\Gamma(\alpha) \beta ^ \alpha} x ^ {\alpha - 1} e ^ {- \frac{x}{\beta}} \text{, } 0 \lt x \lt +\infty\\
 0 \text{, otherwise}
 \end{cases}\\
-\alpha \gt 0, \beta \gt 0.
+&\alpha \gt 0, \beta \gt 0.
+\end{aligned}
 $$
 
 It can also be written as: $X \sim \Gamma(\alpha, \beta)$. Notice that the form of pdf is slightly different from the original $\Gamma$ function for another parameter $\beta$ is introduced. To understand this, consider substitution $y = \frac{x}{\beta}, \beta \gt 0$.
@@ -283,15 +306,17 @@ $$
 
 ##  8.4 Moment of $\Gamma$ distribution
 $$
-M(t) = \frac{1}{(1 - \beta t) ^ \alpha} \text{, } t \lt \frac{1}{\beta}\\
-\mu = \alpha\beta\\
-\sigma ^ 2 = \alpha\beta ^ 2
+\begin{aligned}
+M(t) =& \frac{1}{(1 - \beta t) ^ \alpha} \text{, } t \lt \frac{1}{\beta}\\
+\mu =& \alpha\beta\\
+\sigma ^ 2 =& \alpha\beta ^ 2
+\end{aligned}
 $$
 
 ##  8.5 R reference
 See [The Gamma Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/GammaDist.html).
 
-#   9 **The Exponential Distribution** [continuous]
+#   9 **The Exponential Distribution** (continuous)
 The exponential distribution is a special case of $\Gamma$ distribution.
 
 ##  9.1 Definition of exponential R.V.
@@ -299,11 +324,13 @@ Same as [The $\Gamma$ R.V.](#81-definition-of-gamma-rv) with $\alpha = 1$ and $\
 
 ##  9.2 pdf of exponential R.V.
 $$
-g(x) = \begin{cases}
+\begin{aligned}
+g(x) =& \begin{cases}
 \lambda e ^ {-\lambda x} \text{, } 0 \lt x \lt +\infty\\
 0 \text{, otherwise}
 \end{cases}\\
-\lambda \gt 0
+\lambda \gt& 0
+\end{aligned}
 $$
 
 ##  9.3 Support set of exponential R.V.
@@ -311,15 +338,17 @@ Same as [The $\Gamma$ R.V.](#83-support-set-of-gamma-rv).
 
 ##  9.4 Moment of exponential distribution
 $$
-M(t) = \frac{1}{1 - \frac{1}{\lambda}t} = \frac{\lambda}{\lambda - t} \text{, } t \lt \lambda\\
-\mu = \frac{1}{\lambda}\\
-\sigma ^ 2 = \frac{1}{\lambda ^ 2}
+\begin{aligned}
+M(t) =& \frac{1}{1 - \frac{1}{\lambda}t} = \frac{\lambda}{\lambda - t} \text{, } t \lt \lambda\\
+\mu =& \frac{1}{\lambda}\\
+\sigma ^ 2 =& \frac{1}{\lambda ^ 2}
+\end{aligned}
 $$
 
 ##  9.5 R reference
 See [The Exponential Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Exponential.html).
 
-#   10 **The $\chi ^ 2$ Distribution** [continuous]
+#   10 **The $\chi ^ 2$ Distribution** (continuous)
 The $\chi ^ 2$ distribution is also a special case of $\Gamma$ distribution. It is also closely related to Normal distribution.
 
 ##  10.1 Definition of $\chi ^ 2$ R.V.
@@ -327,11 +356,13 @@ Same as [The $\Gamma$ R.V.](#81-definition-of-gamma-rv) with $\alpha = \frac{r}{
 
 ##  10.2 pdf of $\chi ^ 2$ R.V.
 $$
-f(x) = \begin{cases}
+\begin{aligned}
+f(x) =& \begin{cases}
 \frac{1}{\Gamma(r/2)2 ^ {r/2}} x ^ {\frac{r}{2} - 1} e ^ {- \frac{x}{2}} \text{, } 0 \lt x \lt +\infty\\
 0 \text{, otherwise}
 \end{cases}\\
-r \in N ^ + = \{1, 2, 3, ...\}
+r \in N ^ + =& \{1, 2, 3, ...\}
+\end{aligned}
 $$
 
 ##  10.3 Support set of $\chi ^ 2$ R.V.
@@ -339,15 +370,22 @@ Same as [The $\Gamma$ R.V.](#83-support-set-of-gamma-rv).
 
 ##  10.4 Moment of $\chi ^ 2$ distribution
 $$
-M(t) = \frac{1}{(1 - 2t) ^ \frac{r}{2}} \text{, } t \lt \frac{1}{2}\\
-\mu = r\\
-\sigma ^ 2 = 2r
+\begin{aligned}
+M(t) =& \frac{1}{(1 - 2t) ^ \frac{r}{2}} \text{, } t \lt \frac{1}{2}\\
+\mu =& r\\
+\sigma ^ 2 =& 2r
+\end{aligned}
 $$
+In general, if $X \sim \chi ^ 2(r)$ and $k \gt -\frac{r}{2}$, $E(X ^ k)$ exists and is given by:
+$$
+E(X ^ k) = \frac{2 ^ k \Gamma(\frac{r}{2} + k)}{\Gamma(\frac{r}{2})}, k \gt -\frac{r}{2}
+$$
+This conclusion is unusual because it allows $k$ to be negative.
 
 ##  10.5 R reference
 See [The Chi-Squared Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Chisquare.html).
 
-#   11 **The Beta Distribution** [continuous]
+#   11 **The Beta Distribution** (continuous)
 <details>
 <summary>
 Beta distribution can be derived from two independent Gamma random variables.
@@ -355,8 +393,10 @@ Beta distribution can be derived from two independent Gamma random variables.
 
 Suppose two independent random variables $X_1 \sim \Gamma(\alpha), X_2 \sim \Gamma(\beta)$. Joint pdf is:
 $$
-f_{1,2}(x_1, x_2) = \frac{1}{\Gamma(\alpha)\Gamma(\beta)} x_1 ^ {\alpha - 1} x_2 ^ {\beta - 1} e ^ {- x_1 - x_2} \text{, } 0 \lt x_1 \lt +\infty, 0 \lt x_2 \lt +\infty\\
-\alpha \gt 0, \beta \gt 0
+\begin{aligned}
+&f_{1,2}(x_1, x_2) = \frac{1}{\Gamma(\alpha)\Gamma(\beta)} x_1 ^ {\alpha - 1} x_2 ^ {\beta - 1} e ^ {- x_1 - x_2} \text{, } 0 \lt x_1 \lt +\infty, 0 \lt x_2 \lt +\infty\\
+&\alpha \gt 0, \beta \gt 0
+\end{aligned}
 $$
 
 Consider the substituion, which is a bijection from $(0, \infty) \times (0, \infty) \to (0, \infty) \times (0, 1)$:
@@ -369,21 +409,23 @@ $$
 
 They have joint pdf and marginal pdf:
 $$
-g_{1,2} =\\
+\begin{aligned}
+g_{1,2} &=
 \begin{cases}
 \frac{y_2 ^ {\alpha - 1}(1 - y_2) ^ {\beta - 1} y_1 ^ {\alpha + \beta - 1} e ^ {- y_1}}{\Gamma(\alpha)\Gamma(\beta)} \text{, } 0 \lt y_1 \lt +\infty, 0 \lt y_2 \lt 1\\
 0 \text{, otherwise}
 \end{cases}\\
-g_1(y_1) =\\
+g_1(y_1) &=
 \begin{cases}
 \frac{y_1 ^ {\alpha + \beta - 1} e ^ {- y_1}}{\Gamma(\alpha + \beta)} \text{, } 0 \lt y_1 \lt +\infty\\
 0 \text{, otherwise}
 \end{cases}\\
-g_2(y_2) =\\
+g_2(y_2) &=
 \begin{cases}
 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} y_2 ^ {\alpha - 1} (1 - y_2) ^ {\beta - 1} \text{, } 0 \lt y_2 \lt 1\\
 0 \text{, otherwise}
 \end{cases}
+\end{aligned}
 $$
 
 The following conclusions are drawn:
@@ -398,11 +440,13 @@ Aside from the connection with Gamma distribution, it's easier to take $\beta$ r
 
 ##  11.2 pdf of beta R.V.
 $$
-f(x) = \begin{cases}
+\begin{aligned}
+&f(x) = \begin{cases}
 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x ^ {\alpha - 1} (1 - x) ^ {\beta - 1} \text{, } 0 \lt x \lt 1\\
 0 \text{, otherwise}
 \end{cases}\\
-\alpha \gt 0, \beta \gt 0
+&\alpha \gt 0, \beta \gt 0
+\end{aligned}
 $$
 
 ##  11.3 Support set of beta R.V.
@@ -412,15 +456,17 @@ $$
 
 ##  11.4 Moment of beta distribution
 $$
-M(t) = 1 = \sum_{i = 1}^\infty(\prod_{j = 0}^{i - 1}\frac{\alpha + j}{\alpha + \beta + j})\frac{t ^ i}{i!} \text{, } -\infty \lt t \lt +\infty\\
-\mu = \frac{\alpha}{\alpha + \beta}\\
-\sigma ^ 2 = \frac{\alpha\beta}{(\alpha + \beta + 1)(\alpha + \beta) ^ 2}
+\begin{aligned}
+M(t) &= \sum_{i = 1}^\infty(\prod_{j = 0}^{i - 1}\frac{\alpha + j}{\alpha + \beta + j})\frac{t ^ i}{i!} \text{, } -\infty \lt t \lt +\infty\\
+\mu &= \frac{\alpha}{\alpha + \beta}\\
+\sigma ^ 2 &= \frac{\alpha\beta}{(\alpha + \beta + 1)(\alpha + \beta) ^ 2}
+\end{aligned}
 $$
 
 ##  11.5 R reference
 See [The Beta Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Beta.html).
 
-#   12 **The Normal Distribution** [continuous]
+#   12 **The Normal Distribution** (continuous)
 <details>
 <summary>
 The Normal distribution is the rockstar in Statistics. 
@@ -434,10 +480,12 @@ I = \int_{-\infty}^{+\infty} \frac{1}{\sqrt{2\pi}} \text{exp}(-\frac{x ^ 2}{2}) 
 $$
 It is non-negative and therefore:
 $$
-I = \sqrt{I ^ 2}\\
-I ^ 2 = \frac{1}{2\pi} \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \text{exp}(-\frac{x ^ 2 + t ^ 2}{2}) \text{d}x\text{d}y\\
-= \frac{1}{2\pi} \int_{0}^{2\pi} \int_{0}^{+\infty} \text{exp}(-\frac{r ^ 2}{2}) r dr\text{d}\theta\\
-= \frac{1}{2\pi} \int_0^{2\pi} \text{d}\theta = 1
+\begin{aligned}
+I &= \sqrt{I ^ 2}\\
+I ^ 2 &= \frac{1}{2\pi} \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \text{exp}(-\frac{x ^ 2 + t ^ 2}{2}) \text{d}x\text{d}y\\
+&= \frac{1}{2\pi} \int_{0}^{2\pi} \int_{0}^{+\infty} \text{exp}(-\frac{r ^ 2}{2}) r dr\text{d}\theta\\
+&= \frac{1}{2\pi} \int_0^{2\pi} \text{d}\theta = 1
+\end{aligned}
 $$
 This indicates that:
 $$
@@ -454,8 +502,10 @@ It's easy to prove that $Z \sim N(0, 1)$.
 A Normal R.V. is a continuous R.V. which follows the normal distribution.
 ##  12.2 pdf of Normal R.V.
 $$
-f(x) = \frac{1}{\sqrt{2\pi} \sigma} e ^ {-(\frac{x - \mu}{\sigma}) ^ 2} \text{, } -\infty \lt x \lt +\infty\\
-\mu \in (-\infty, +\infty), \sigma \in (-\infty, +\infty), \text{a negative } \sigma \text{ is meaningless though.}
+\begin{aligned}
+&f(x) = \frac{1}{\sqrt{2\pi} \sigma} e ^ {-(\frac{x - \mu}{\sigma}) ^ 2} \text{, } -\infty \lt x \lt +\infty\\
+&\mu \in (-\infty, +\infty), \sigma \in (-\infty, +\infty), \text{a negative } \sigma \text{ is meaningless though.}
+\end{aligned}
 $$
 It can be written as : $X \sim N(\mu, \sigma ^ 2)$.
 ##  12.3 Support set of beta R.V.
@@ -465,7 +515,7 @@ $$
 
 ##  12.4 Moment of Normal R.V.
 $$
-M(t) = \text{exp}\{\mu t + \frac{1}{2}\sigma ^ 2 t ^ 2\} = e ^ {\mu t + \frac{1}{2}\sigma ^ 2 t ^ 2}\\
+M(t) = \text{exp}\{\mu t + \frac{1}{2}\sigma ^ 2 t ^ 2\} = e ^ {\mu t + \frac{1}{2}\sigma ^ 2 t ^ 2}
 $$
 $\mu$ and $\sigma ^ 2$ are mean and variance of normal distribution respectively. We normally have:
 $$
@@ -475,10 +525,14 @@ In a more clever way:
 $$
 E(X ^ n) = E[(\sigma Z + \mu) ^ n] = \sum_{i = 0}^n {n \choose i} \sigma ^ i \mu ^ {n - i} E(Z ^ i)
 $$
-#   12.5 R reference
+When $X \sim N(0, 1)$:
+$$
+M(t) = \text{exp}\{\frac{1}{2}t^2\} = e ^ {\frac{1}{2}t ^ 2}
+$$
+##  12.5 R reference
 See [The Normal Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html).
 
-#   13 **The Multivariate Normal Distribution** [continuous]
+#   13 **The Multivariate Normal Distribution** (continuous)
 <details>
 <summary>
 There are many ways to introduce multivariate normal distribution. Here we start from standard multivariate normal distribution with n variables.
@@ -505,8 +559,10 @@ where:
 
 Define:
 $$
-\Lambda ^ {\frac{1}{2}} = \text{diag}\{\lambda_1^\frac{1}{2}, \lambda_2^\frac{1}{2} , ...\}\\
-\Sigma ^ \frac{1}{2} = \Gamma'\Lambda ^ \frac{1}{2}\Gamma\\
+\begin{aligned}
+\Lambda ^ {\frac{1}{2}} &= \text{diag}\{\lambda_1^\frac{1}{2}, \lambda_2^\frac{1}{2} , ...\}\\
+\Sigma ^ \frac{1}{2} &= \Gamma'\Lambda ^ \frac{1}{2}\Gamma
+\end{aligned}
 $$
 Since
 $$
@@ -525,8 +581,10 @@ Similar to [The Normal R.V.](#121-definition-of-normal-rv).
 
 ##  13.2 pdf of multivariate normal R.V.
 $$
-f_{\boldsymbol X}({\boldsymbol x}) = \frac{1}{(2\pi) ^ \frac{n}{2} \text{det}(\Sigma) ^ \frac{1}{2}} \text{exp} \{-\frac{1}{2}(\boldsymbol{x - \mu})'\Sigma ^ {-1} (\boldsymbol{x - \mu})\}\\
-\boldsymbol{\mu} \in R ^ n \text{, } \Sigma \text{ is symmetric and psd.}
+\begin{aligned}
+f_{\boldsymbol X}({\boldsymbol x}) &= \frac{1}{(2\pi) ^ \frac{n}{2} \text{det}(\Sigma) ^ \frac{1}{2}} \text{exp} \{-\frac{1}{2}(\boldsymbol{x - \mu})'\Sigma ^ {-1} (\boldsymbol{x - \mu})\}\\
+\boldsymbol{\mu} &\in R ^ n \text{, } \Sigma \text{ is symmetric and psd.}
+\end{aligned}
 $$
 ##  13.3 Support set of multivariate normal R.V.
 $$
@@ -540,9 +598,11 @@ $$
 ##  13.5 Useful properties of multivariate normal R.V.
 In the following conclusions, assume that:
 $$
-{\boldsymbol X} \sim N_n(\mu, \Sigma)\\
-{\boldsymbol \mu} = (\mu_1, \mu_2, ..., \mu_n)'\\
-\Sigma = (\sigma_{ij})_{n \times n}
+\begin{aligned}
+{\boldsymbol X} &\sim N_n(\mu, \Sigma)\\
+{\boldsymbol \mu} &= (\mu_1, \mu_2, ..., \mu_n)'\\
+\Sigma &= (\sigma_{ij})_{n \times n}
+\end{aligned}
 $$
 
 **Linear substitution of variables**
@@ -553,25 +613,29 @@ $Y_{m \times 1} = A_{m \times n}X + b$. Y is also multivariate normally distribu
 
 For any subset $\{k_1, k_2, ..., k_r\} \subset \{1, 2, ..., n\}$, $X_K = (x_{k_1}, x_{k_2}, ..., x_{k_r})$.
 $$
-{\boldsymbol X}_K \sim N_r(\mu_K, \Sigma_K)\\
-{\boldsymbol \mu}_K = (\mu_{k_1}, \mu_{k_2}, ..., \mu_{k_r})\\
-\Sigma_K = (\sigma_{i, j\in \{k_1, k_2, ... ,k_r\}})_{r \times r}
+\begin{aligned}
+{\boldsymbol X}_K &\sim N_r(\mu_K, \Sigma_K)\\
+{\boldsymbol \mu}_K &= (\mu_{k_1}, \mu_{k_2}, ..., \mu_{k_r})\\
+\Sigma_K &= (\sigma_{i, j\in \{k_1, k_2, ... ,k_r\}})_{r \times r}
+\end{aligned}
 $$
 
 **Conditional pdf of a subset of variables**
 
 In this case we suppose $\Sigma$ is pd(positive definite). $\{1, 2, ..., n\}$ is divided into two mutually exclusive and exhaustive subsets: $P = \{p_1, p_2, ... , p_r\}, Q = \{q_1, p_2, ... , p_{n - r}\}$. WLOG $P = \{1, 2, 3, ... ,r\}, Q = \{r+ 1, r+2, ..., n\}$. Let $X_1 = (x_1, ... ,x_r), X_2 = (x_{r + 1}, ... ,x_{n})$ . Define partitioned matrice of $\Sigma$ and $\mu$:
 $$
-\Sigma = \begin{bmatrix}
+\begin{aligned}
+\Sigma &= \begin{bmatrix}
 \Sigma_{11} & \Sigma_{12}\\
 \Sigma_{21} & \Sigma_{22}
 \end{bmatrix}\\
-\Sigma_{11} = (\sigma_{i,j \in P})_{r \times r}\\
-\Sigma_{12} = (\sigma_{i \in P, j \in Q})_{r \times (n-r)}\\
-\Sigma_{21} = (\sigma_{i \in Q, j \in P})_{(n - r) \times r}\\
-\Sigma_{22} = (\sigma_{i, j \in Q})_{(n - r) \times (n - r)}\\
-\boldsymbol{\mu}_1 = (\mu_1, \mu_2, ... ,\mu_r)\\
-\boldsymbol{\mu}_2 = (\mu_{r + 1}, ... ,\mu_n)
+\Sigma_{11} &= (\sigma_{i,j \in P})_{r \times r}\\
+\Sigma_{12} &= (\sigma_{i \in P, j \in Q})_{r \times (n-r)}\\
+\Sigma_{21} &= (\sigma_{i \in Q, j \in P})_{(n - r) \times r}\\
+\Sigma_{22} &= (\sigma_{i, j \in Q})_{(n - r) \times (n - r)}\\
+\boldsymbol{\mu}_1 &= (\mu_1, \mu_2, ... ,\mu_r)\\
+\boldsymbol{\mu}_2 &= (\mu_{r + 1}, ... ,\mu_n)
+\end{aligned}
 $$
 Then, ${\boldsymbol X_1} | {\boldsymbol X_2}$ is multivariate normally distributed:
 $$
@@ -581,7 +645,7 @@ $$
 ##  13.6 R reference
 See [MVNORM](https://www.rdocumentation.org/packages/mvtnorm/versions/1.0-10/topics/Mvnorm).
 
-#   14 **The Student's t-distribution** [continuous]
+#   14 **The Student's t-distribution** (continuous)
 <details>
 <summary>
 The Student's t-distribution is a powerful model describing sample means and variances.
@@ -596,16 +660,20 @@ h(w, v) = \begin{cases}
 $$
 Consider the substitution, which is a bijection:
 $$
-T = \frac{W}{\sqrt{V/r}}\\
-U = V
+\begin{aligned}
+T &= \frac{W}{\sqrt{V/r}}\\
+U &= V
+\end{aligned}
 $$
 T and U have joint distribution:
 $$
-g(t, u) = h(\frac{t\sqrt{u}}{\sqrt{r}}, u)|\text{det}(\frac{\partial(w, v)}{\partial(t, u)})|\\
-= \begin{cases}
+\begin{aligned}
+g(t, u) &= h(\frac{t\sqrt{u}}{\sqrt{r}}, u)|\text{det}(\frac{\partial(w, v)}{\partial(t, u)})|\\
+&= \begin{cases}
 \frac{1}{\sqrt{2\pi}\Gamma(\frac{r}{2})2 ^ {\frac{r}{2}}}u^{\frac{r}{2} - 1}e ^ {- \frac{u(r + t ^ 2)}{2r}}, t\in R, u \gt 0\\
 0 \text{, otherwise}
 \end{cases}
+\end{aligned}
 $$
 The marginal of T yields Student's t.
 </details>
@@ -614,8 +682,10 @@ The marginal of T yields Student's t.
 A Student's t-R.V. is a continous R.V. which follows Student's t distribution.
 ##  14.2 pdf of t R.V.
 $$
-f(x) = \frac{\Gamma(\frac{r + 1}{2})}{\sqrt{\pi r}\Gamma(\frac{r}{2})} \frac{1}{(1 + \frac{x ^ 2}{r}) ^ {\frac{r + 1}{2}}}\\
-r \in N ^ + = \{1, 2, ...\}
+\begin{aligned}
+f(x) &= \frac{\Gamma(\frac{r + 1}{2})}{\sqrt{\pi r}\Gamma(\frac{r}{2})} \frac{1}{(1 + \frac{x ^ 2}{r}) ^ {\frac{r + 1}{2}}}\\
+r \in N ^ + &= \{1, 2, ...\}
+\end{aligned}
 $$
 ##  14.3 Support set of t R.V.
 $$
@@ -624,10 +694,12 @@ $$
 ##  14.4 Moment of t R.V.
 We keep the concept of $W \sim N(0,1)$ and $V \sim \chi ^ 2(r)$ here.
 $$
-E(T ^ k) = E[W ^ k (\frac{V}{r}) ^ {- \frac{k}{2}}] = E[W ^ k]E[(\frac{V}{r}) ^ {- \frac{k}{2}}] \\
-= E(W ^ k)\frac{2 ^ {- \frac{k}{2}} \Gamma(\frac{r - k}{2})}{\Gamma(\frac{r}{2})r ^ {- \frac{k}{2}}}, k \lt r\\
-\mu = 0\\
-\sigma ^ 2 = \frac{r}{r - 2} (r \gt 2)
+\begin{aligned}
+E(T ^ k) &= E[W ^ k (\frac{V}{r}) ^ {- \frac{k}{2}}] = E[W ^ k]E[(\frac{V}{r}) ^ {- \frac{k}{2}}] \\
+&= E(W ^ k)\frac{2 ^ {- \frac{k}{2}} \Gamma(\frac{r - k}{2})}{\Gamma(\frac{r}{2})r ^ {- \frac{k}{2}}}, k \lt r\\
+\mu &= 0\\
+\sigma ^ 2 &= \frac{r}{r - 2} (r \gt 2)
+\end{aligned}
 $$
 
 ##  14.5 R reference
@@ -673,13 +745,18 @@ x \in R ^ +
 $$
 ##  15.4 Moment of F R.V.
 $$
-M(t) \text{ does not exist.}\\
-E(F ^ k) = (\frac{r_2}{r_2}) ^ k E(U ^ k)E(V ^ {-k})
+\begin{aligned}
+M(t) &\text{ does not exist.}\\
+E(F ^ k) &= (\frac{r_2}{r_2}) ^ k E(U ^ k)E(V ^ {-k})\\
+&= (\frac{r_2}{r_1}) ^ k \frac{\Gamma(\frac{r_1}{2} + k)\Gamma(\frac{r_2}{2} - k)}{\Gamma(\frac{r_1}{2})\Gamma(\frac{r_2}{2})}
+\end{aligned}
 $$
 When $2k < r_2$:
 $$
-\mu = \frac{r_2}{r_2 - 2}, r_2 \gt2\\
-\sigma ^ 2 = 2(\frac{r_2}{r_2 - 2}) ^ 2\frac{r_1 + r_2 - 2}{r_1(r_2 - 4)}, r_2 \gt4
+\begin{aligned}
+\mu &= \frac{r_2}{r_2 - 2}, r_2 \gt2\\
+\sigma ^ 2 &= 2(\frac{r_2}{r_2 - 2}) ^ 2\frac{r_1 + r_2 - 2}{r_1(r_2 - 4)}, r_2 \gt4
+\end{aligned}
 $$
 
 ##  15.5 R reference
